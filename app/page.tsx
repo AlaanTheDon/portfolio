@@ -80,8 +80,8 @@ export default function Portfolio() {
               Contact Me <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform"/>
             </a>
             <div className="flex gap-2 ml-2">
-                <a href="https://github.com/YOUR_GITHUB" target="_blank" className="p-3 bg-slate-900 rounded-lg hover:bg-indigo-600 hover:text-white transition-all border border-slate-800"><Github size={24} /></a>
-                <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" className="p-3 bg-slate-900 rounded-lg hover:bg-indigo-600 hover:text-white transition-all border border-slate-800"><Linkedin size={24} /></a>
+                <a href="https://github.com/AlaanTheDon" target="_blank" className="p-3 bg-slate-900 rounded-lg hover:bg-indigo-600 hover:text-white transition-all border border-slate-800"><Github size={24} /></a>
+                <a href="https://www.linkedin.com/in/alaan-sharif-63b84b104/" target="_blank" className="p-3 bg-slate-900 rounded-lg hover:bg-indigo-600 hover:text-white transition-all border border-slate-800"><Linkedin size={24} /></a>
             </div>
           </motion.div>
         </motion.section>
