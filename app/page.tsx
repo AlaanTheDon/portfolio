@@ -1,9 +1,95 @@
 'use client';
 
 import React from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Code, Database, Terminal, ArrowRight, Cpu, MapPin, Server, ShieldCheck } from 'lucide-react';
+import { Github, Linkedin, ExternalLink, ArrowRight, Cpu, MapPin, Server, Layers, Globe, Database, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
+
+// --- DATA CONFIG ---
+
+const SKILLS = [
+  'JavaScript', 'Python', 'Java', 'C++', 'C', 'SQL', 
+  'React', 'Next.js', 'TypeScript', 'Tailwind CSS', 
+  'Palantir Foundry', 'MongoDB', 'Git', 'RESTful APIs', 'SDLC'
+];
+
+const EXPERIENCE = [
+  {
+    company: "Strategic Auto Group",
+    role: "Web Developer & Consultant",
+    period: "Jan 2023 — Present",
+    color: "bg-indigo-500",
+    text: "text-indigo-400",
+    description: [
+      "Engineered a custom dealership web application using JavaScript, HTML, and CSS to automate vehicle browsing.",
+      "Implemented responsive web design ensuring high-performance cross-device compatibility.",
+      "Enhanced online visibility and lead generation through SEO optimization."
+    ]
+  },
+  {
+    company: "Genpact",
+    role: "Quality Analyst",
+    period: "Jan 2021 — Jan 2022",
+    color: "bg-sky-500",
+    text: "text-sky-400",
+    description: [
+      "Performed rigorous quality assurance and data validation on large-scale datasets.",
+      "Collaborated with cross-functional teams using Git and Agile workflows to meet strict deadlines.",
+      "Resolved critical data discrepancies, improving reliability for the client."
+    ]
+  },
+  {
+    company: "eBay Storefront",
+    role: "E-commerce Business Owner",
+    period: "Jan 2019 — Present",
+    color: "bg-slate-700",
+    text: "text-slate-500",
+    description: [
+      "Directed business operations for a high-volume storefront, sustaining 5 years of growth.",
+      "Implemented pricing strategies with Python and Palantir Foundry to increase margins.",
+      "Managed logistics and inventory audits using SQL queries."
+    ]
+  }
+];
+
+const PROJECTS = [
+  {
+    title: "Tasneem Events",
+    link: "https://www.tasneemevents.com/",
+    tags: ["Next.js 14", "TypeScript", "Tailwind"],
+    icon: <Globe size={24} />,
+    iconColor: "text-indigo-400",
+    iconBg: "bg-indigo-500/10",
+    description: "A high-performance commercial landing page achieving a 100/100 Lighthouse score. Features serverless lead generation using Web3Forms and advanced UI/UX with Framer Motion."
+  },
+  {
+    title: "AI Slop Meter",
+    link: "https://chromewebstore.google.com/detail/ai-slop-meter/mhjlleifaocopeongciebnkjpidaocai?pli=1",
+    tags: ["Chrome Ext", "JavaScript", "Automation"],
+    icon: <Layers size={24} />,
+    iconColor: "text-emerald-400",
+    iconBg: "bg-emerald-500/10",
+    description: "A custom Chrome browser extension designed to analyze and filter content quality. Published to the Chrome Web Store to improve user browsing efficiency."
+  },
+  {
+    title: "Personal Fitness Tracker",
+    link: null, // No link provided yet
+    tags: ["Full Stack", "CRUD", "REST"],
+    icon: <Database size={24} />,
+    iconColor: "text-rose-400",
+    iconBg: "bg-rose-500/10",
+    description: "Full-stack application to log workouts and metrics. Implemented full CRUD functionality and progress visualization tools, directly contributing to personal health goals."
+  },
+  {
+    title: "CRM Application",
+    link: null,
+    tags: ["Palantir Foundry", "Data Eng", "SQL"],
+    icon: <Cpu size={24} />,
+    iconColor: "text-purple-400",
+    iconBg: "bg-purple-500/10",
+    description: "Automated data pipelines and interactive dashboards in Palantir Foundry. Improved decision-making efficiency by 40% through real-time data visualization."
+  }
+];
 
 // --- ANIMATION CONFIG ---
 const containerVariants = {
@@ -80,8 +166,8 @@ export default function Portfolio() {
               Contact Me <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform"/>
             </a>
             <div className="flex gap-2 ml-2">
-                <a href="https://github.com/YOUR_GITHUB" target="_blank" className="p-3 bg-slate-900 rounded-lg hover:bg-indigo-600 hover:text-white transition-all border border-slate-800"><Github size={24} /></a>
-                <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" className="p-3 bg-slate-900 rounded-lg hover:bg-indigo-600 hover:text-white transition-all border border-slate-800"><Linkedin size={24} /></a>
+                <a href="https://github.com/AlaanTheDon" target="_blank" className="p-3 bg-slate-900 rounded-lg hover:bg-indigo-600 hover:text-white transition-all border border-slate-800"><Github size={24} /></a>
+                <a href="https://www.linkedin.com/in/alaan-sharif-63b84b104/" target="_blank" className="p-3 bg-slate-900 rounded-lg hover:bg-indigo-600 hover:text-white transition-all border border-slate-800"><Linkedin size={24} /></a>
             </div>
           </motion.div>
         </motion.section>
@@ -100,11 +186,11 @@ export default function Portfolio() {
             <div className="space-y-4 text-slate-400 leading-relaxed">
               <p>
                 I am a Computer Science graduate (UT Dallas '24) who doesn't just write code—I build businesses. 
-                For the past 5 years, I've run a high-volume e-commerce store, using <strong>Python</strong> and <strong>data engineering</strong> to outmaneuver competitors
+                For the past 5 years, I've run a high-volume e-commerce store, using <strong>Python</strong> and <strong>data engineering</strong> to outmaneuver competitors.
               </p>
               <p>
                 I have professional experience as a Full Stack Developer at <strong>Strategic Auto Group</strong>, where I designed and implemented a custom inventory management system that improved SEO and page load speeds.
-                Additionally, I worked as a Quality Analyst at <strong>Genpact</strong>, ensuring data integrity and regulatory compliance on large-scale datasets.
+                Additionally, I worked as a Quality Analyst at <strong>Genpact</strong>, ensuring data integrity on large-scale datasets.
               </p>
               <p>
                 While others focus on making buttons look pretty, I focus on what happens when you click them: 
@@ -116,7 +202,7 @@ export default function Portfolio() {
             <div className="mt-8">
               <h3 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4">Tech Stack</h3>
               <div className="flex flex-wrap gap-2">
-                {['JavaScript', 'React', 'Next.js', 'Python', 'Java', 'SQL', 'Git', 'HTML/CSS', 'Tailwind', 'Palantir Foundry', 'MongoDB', 'C++', 'Typescript','REST', 'SDLC'].map((skill) => (
+                {SKILLS.map((skill) => (
                   <span key={skill} className="px-3 py-1 bg-slate-800/50 border border-slate-700 text-slate-300 rounded-full text-xs font-mono hover:border-indigo-500/50 transition-colors cursor-default">
                     {skill}
                   </span>
@@ -174,49 +260,21 @@ export default function Portfolio() {
           </h2>
           
           <div className="space-y-8 relative border-l border-slate-800 ml-3 pl-8">
-            
-            {/* Role 1: Strategic Auto */}
-            <div className="relative">
-              <span className="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-slate-950 bg-indigo-500"></span>
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
-                <h3 className="text-xl font-bold text-slate-100">Strategic Auto Group</h3>
-                <span className="text-sm font-mono text-indigo-400">2023 — Present</span>
-              </div>
-              <p className="text-slate-400 mb-4 font-medium">Full Stack Web Developer</p>
-              <ul className="list-disc list-outside ml-4 text-slate-500 text-sm leading-relaxed max-w-2xl space-y-2 marker:text-indigo-500">
-                <li>Engineered a custom inventory management system using JavaScript and CSS Flexbox. </li>
-                <li>Replaced legacy manual tracking, optimizing SEO and page load speeds.</li>
+            {EXPERIENCE.map((job, index) => (
+              <div key={index} className="relative">
+                <span className={`absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-slate-950 ${job.color}`}></span>
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                  <h3 className="text-xl font-bold text-slate-100">{job.company}</h3>
+                  <span className={`text-sm font-mono ${job.text}`}>{job.period}</span>
+                </div>
+                <p className="text-slate-400 mb-4 font-medium">{job.role}</p>
+                <ul className="list-disc list-outside ml-4 text-slate-500 text-sm leading-relaxed max-w-2xl space-y-2 marker:text-slate-600">
+                  {job.description.map((desc, i) => (
+                    <li key={i}>{desc}</li>
+                  ))}
                 </ul>
-            </div>
-
-            {/* Role 2: Genpact */}
-            <div className="relative">
-              <span className="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-slate-950 bg-sky-500"></span>
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
-                <h3 className="text-xl font-bold text-slate-100">Genpact</h3>
-                <span className="text-sm font-mono text-sky-400">2021 — 2022</span>
               </div>
-              <p className="text-slate-400 mb-4 font-medium">Quality Analyst</p>
-              <ul className="list-disc list-outside ml-4 text-slate-500 text-sm leading-relaxed max-w-2xl space-y-2 marker:text-sky-500/50">
-                <li>Performed rigorous <strong>quality assurance</strong> and <strong>data validation</strong> on large-scale datasets to ensure accuracy and regulatory compliance.</li>
-                <li>Collaborated with cross-functional teams using <strong>Git</strong> and <strong>Agile workflows</strong> to meet strict deadlines on NDA-protected projects.</li>
-              </ul>
-            </div>
-
-            {/* Role 3: eBay */}
-            <div className="relative">
-              <span className="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-slate-950 bg-slate-700"></span>
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
-                <h3 className="text-xl font-bold text-slate-100">eBay Storefront</h3>
-                <span className="text-sm font-mono text-slate-500">2019 — Present</span>
-              </div>
-              <p className="text-slate-400 mb-4 font-medium">Founder & Engineer</p>
-                <ul className="list-disc list-outside ml-4 text-slate-500 text-sm leading-relaxed max-w-2xl space-y-2 marker:text-slate-700">
-                  <li>Scaled operations for a high-volume storefront using Python scripts for sales tracking. </li>
-                  <li>Built data pipelines in <strong>MongoDB</strong> to analyze pricing trends, significantly improving profit margins.</li>
-                </ul>
-            </div>
-            
+            ))}
           </div>
         </section>
 
@@ -224,50 +282,43 @@ export default function Portfolio() {
         <section className="mb-32">
           <div className="flex items-center justify-between mb-12">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3">
-              <Server className="text-indigo-500" /> System Architecture
+              <Server className="text-indigo-500" /> Projects
             </h2>
-            <span className="text-xs font-mono text-slate-500 border border-slate-800 px-2 py-1 rounded">
-              NON-VISUAL / BACKEND FOCUSED
-            </span>
           </div>
           
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Project 1 - Fitness Tracker */}
-            <div className="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-indigo-500/50 transition-colors">
-              <div className="flex justify-between items-start mb-6">
-                <div className="p-3 bg-indigo-500/10 rounded-lg text-indigo-400">
-                  <Database size={24} />
-                </div>
-                <div className="flex gap-2">
-                   <span className="px-2 py-1 bg-slate-800 rounded text-[10px] text-slate-400 uppercase tracking-wider">CRUD</span>
-                   <span className="px-2 py-1 bg-slate-800 rounded text-[10px] text-slate-400 uppercase tracking-wider">REST</span>
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">Personal Fitness Tracker</h3>
-              <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-                A full-stack architecture for logging health metrics. 
-                Focus was on database schema design and creating efficient API endpoints to handle historical data visualization.
-              </p>
-            </div>
+            {PROJECTS.map((project, index) => (
+               <div key={index} className="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-indigo-500/50 transition-colors flex flex-col h-full relative">
+                 {/* Clickable Overlay if Link Exists */}
+                 {project.link && (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-10" aria-label={`View ${project.title}`}></a>
+                 )}
 
-            {/* Project 2 - Palantir */}
-            <div className="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-indigo-500/50 transition-colors">
-              <div className="flex justify-between items-start mb-6">
-                <div className="p-3 bg-purple-500/10 rounded-lg text-purple-400">
-                  <Cpu size={24} />
-                </div>
-                 <div className="flex gap-2">
-                   <span className="px-2 py-1 bg-slate-800 rounded text-[10px] text-slate-400 uppercase tracking-wider">Data Eng</span>
-                   <span className="px-2 py-1 bg-slate-800 rounded text-[10px] text-slate-400 uppercase tracking-wider">SQL</span>
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">Foundry Data Pipeline</h3>
-              <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-                Automated ETL pipelines in Palantir Foundry. 
-                Processed raw client data into actionable dashboards, reducing decision latency by 40% for sales employees.
-              </p>
-
-            </div>
+                 <div className="flex justify-between items-start mb-6">
+                   <div className={`p-3 rounded-lg ${project.iconBg} ${project.iconColor}`}>
+                     {project.icon}
+                   </div>
+                   <div className="flex flex-col items-end gap-2">
+                      {project.link && (
+                        <ExternalLink size={16} className="text-slate-500 group-hover:text-indigo-400 transition-colors mb-1" />
+                      )}
+                      <div className="flex gap-2 flex-wrap justify-end">
+                        {project.tags.map(tag => (
+                          <span key={tag} className="px-2 py-1 bg-slate-800 rounded text-[10px] text-slate-400 uppercase tracking-wider">{tag}</span>
+                        ))}
+                      </div>
+                   </div>
+                 </div>
+                 
+                 <h3 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors flex items-center gap-2">
+                    {project.title}
+                 </h3>
+                 
+                 <p className="text-slate-400 text-sm leading-relaxed">
+                   {project.description}
+                 </p>
+               </div>
+            ))}
           </div>
         </section>
 
