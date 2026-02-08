@@ -17,7 +17,7 @@ const EXPERIENCE = [
   {
     company: "Strategic Auto Group",
     role: "Web Developer & Consultant",
-    period: "Jan 2023 — Present",
+    period: "Jan 2023 — May 2024",
     color: "bg-indigo-500",
     text: "text-indigo-400",
     description: [
@@ -29,7 +29,7 @@ const EXPERIENCE = [
   {
     company: "Genpact",
     role: "Quality Analyst",
-    period: "Jan 2021 — Jan 2022",
+    period: "Mar 2021 — Aug 2022",
     color: "bg-sky-500",
     text: "text-sky-400",
     description: [
@@ -41,7 +41,7 @@ const EXPERIENCE = [
   {
     company: "eBay Storefront",
     role: "E-commerce Business Owner",
-    period: "Jan 2019 — Present",
+    period: "Mar 2019 — Present",
     color: "bg-slate-700",
     text: "text-slate-500",
     description: [
